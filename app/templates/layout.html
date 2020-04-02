@@ -1,0 +1,20 @@
+{% extends "base.html" %} 
+
+{% block content %}
+<header>
+  <nav>
+    <div class="nav-wrapper indigo lighten-1">
+      <a href="#" class="brand-logo">Home</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="#">My Tweet</a></li>
+        <li><a href="#">Hi { Name }, Logout?</a></li>
+        <li><a href="#">Login</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<main>
+    {% block appcontent -%}{%- endblock appcontent %}
+</main>
+{% endblock %}
