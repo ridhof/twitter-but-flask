@@ -1,1 +1,128 @@
-<h2>Welcome to Landing Page</h2>
+{% extends "layout.html" %} 
+
+{% block appcontent %}
+<div class="container">
+  <div class="section">
+    <div class="row">
+      <div class="col s1"></div>
+      <div class="col s10 m10">
+        <div class="card horizontal">
+          <div class="card-stacked">
+            <div class="card-content">
+              <form class="col s12">
+                <div class="row">
+                  <div class="input-field col s12">
+                    <textarea
+                      id="textarea1"
+                      maxlength="120"
+                      class="materialize-textarea"
+                    ></textarea>
+                    <label for="textarea1">What are you thinking today?</label>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="card-action">
+              <a class="waves-effect waves-light btn indigo">tweet</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col s1"></div>
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div class="section">
+    <div class="row">
+      <div class="col s2"></div>
+      <div class="col s8 m8">
+        <div class="card indigo darken-1">
+          <div class="card-content white-text">
+            <span class="card-title">@username</span>
+            <p>
+              I am a very simple tweet. I am good at containing small bits of
+              information. I am convenient because I require little markup to
+              use effectively.
+            </p>
+          </div>
+          <div class="card-action white-text">
+            <a href="#">
+              <span class="new badge"
+                ><i class="tiny material-icons">thumb_up</i> 3</span
+              >
+            </a>
+            <a href="#">
+              <span class="new badge"
+                ><i class="tiny material-icons">repeat</i> 2</span
+              >
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col s2"></div>
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div class="section">
+    <div class="row">
+      <div class="col s2"></div>
+      <div class="col s8 m8">
+        <div class="card indigo darken-1">
+          <div class="card-content white-text">
+            <span class="card-title">@username</span>
+            <p>
+              I am a very simple tweet. I am good at containing small bits of
+              information. I am convenient because I require little markup to
+              use effectively.
+            </p>
+          </div>
+          <div class="card-action white-text">
+            <a href="#">
+              <span class="new badge"
+                ><i class="tiny material-icons">thumb_up</i> 3</span
+              >
+            </a>
+            <a href="#">
+              <span class="new badge"
+                ><i class="tiny material-icons">repeat</i> 2</span
+              >
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col s2"></div>
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div class="section">
+    <div class="row">
+      <div class="col s2"></div>
+      <div class="col s8 m8">
+        <div class="card indigo darken-1">
+          <div class="card-content white-text">
+            <span class="card-title">@username</span>
+            <p>
+              I am a very simple tweet. I am good at containing small bits of
+              information. I am convenient because I require little markup to
+              use effectively.
+            </p>
+          </div>
+          <div class="card-action white-text">
+            <a href="#">
+              <span class="new badge"
+                ><i class="tiny material-icons">thumb_up</i> 3</span
+              >
+            </a>
+            <a href="#">
+              <span class="new badge"
+                ><i class="tiny material-icons">repeat</i> 2</span
+              >
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col s2"></div>
+    </div>
+  </div>
+</div>
+{% endblock %}
