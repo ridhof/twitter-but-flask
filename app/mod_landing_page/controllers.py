@@ -1,7 +1,7 @@
 """
 Landing Page Module's Controllers
 """
-from flask import Blueprint, render_template, send_from_directory
+from flask import Blueprint, render_template, send_from_directory, session
 
 from app.mod_tweet.models import Tweet
 
@@ -13,8 +13,9 @@ def landing_page():
     """
     Return a HTML of Landing Page.
     """
+    username = session['username']
     tweet = Tweet.query.all()
-    return render_template("landing_page/landing_page.html", tweet=tweet)
+    return render_template("landing_page/landing_page.html", username=username, tweet=tweet)
 
 @MOD_LANDING_PAGE.route('/robots.txt', methods=['GET', 'POST'])
 def robots():
