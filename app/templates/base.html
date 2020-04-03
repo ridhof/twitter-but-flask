@@ -38,10 +38,10 @@
 
   <body {% block body_attribs %}{% endblock body_attribs %}>
     {% block body -%} {% block navbar %} {%- endblock navbar %} {% block content
-    -%} {%- endblock content %} {% block scripts %}
-
+    -%} {%- endblock content %} 
+    
+    {% block scripts %}
     <script src="{{ url_for('static', filename='js/materialize.js') }}"></script>
-
     {%- endblock scripts %} {%- endblock body %}
   </body>
   {%- endblock html %}
