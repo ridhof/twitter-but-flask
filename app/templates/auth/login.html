@@ -46,12 +46,12 @@
           {{ form.csrf_token }}
           <span class="login100-form-title"></span>
 
-          {% with errors = get_flashed_messages() %}
-          {% if errors %}
+          {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
           <div>
-            {% for error in errors %}
-            <div class="alert alert-danger" role="alert">
-              {{ error }}
+            {% for category, message in messages %}
+            <div class="alert alert-{{ category }}" role="alert">
+              {{ message }}
             </div>
             {% endfor %}
           </div>
