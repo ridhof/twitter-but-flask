@@ -1,30 +1,29 @@
-# Flask-RESTful Example 
-#### 安装依赖包
+# Flask but Twitter
+
+Flask but Twitter is an implementation of better Flask Structures of mine. This Flask Structures is combination between 2 structures that I adore because of the beauty of its structures.
+
+#### Preparation
 ```
 python install -r requirements.txt
 ```
 
-#### 创建数据表
+#### Setup Database
 ```
 python manager.py db init
 python manager.py db migrate
 python manager.py db upgrade
 ```
 
-#### debug模式启动
+#### Running in Debug Mode
 ```
 python manager.py debug
 ```
 
-#### 生产模式启动
+#### Running in Production Mode
 ```
 python manager.py run
 ```
 
-#### Tests
-```
-python -m tests.testapp
-```
-
-Acknowledges:
-[Flask Restful Example by lalala223](https://github.com/lalala223/flask-restful-example)
+### Acknowledges
+- [Flask Restful Example by lalala223](https://github.com/lalala223/flask-restful-example)
+- [Beginner's Guide to Using Databases with Python: Postgres, SQLAlchemy, and Alembic](https://www.learndatasci.com/tutorials/using-databases-python-postgres-sqlalchemy-and-alembic/)
