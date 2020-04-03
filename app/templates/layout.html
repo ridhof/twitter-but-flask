@@ -6,9 +6,12 @@
     <div class="nav-wrapper indigo lighten-1">
       <a href="#" class="brand-logo">Home</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
+        {% if username %}
         <li><a href="#">My Tweet</a></li>
-        <li><a href="#">Hi { Name }, Logout?</a></li>
+        <li><a href="{{ url_for('auth.logout') }}">Hi {{ username }}, Logout?</a></li>
+        {% else %}
         <li><a href="{{ url_for('auth.login') }}">Login</a></li>
+        {% endif %}
       </ul>
     </div>
   </nav>
