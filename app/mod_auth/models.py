@@ -1,3 +1,4 @@
+from werkzeug.security import generate_password_hash, check_password_hash
 from app import DB as db
 
 
@@ -29,7 +30,10 @@ class User(Base):
     def __init__(self, name, password):
 
         self.name = name
-        self.password = password
+        self.password = generate_password_hash(password)
 
     def __repr__(self):
         return '<User %r>' % (self.name)
+
+    def check_password(self, password):
+        return check_password_hash(self.password, password)
