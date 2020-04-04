@@ -26,7 +26,7 @@ def landing_page():
         db.session.add(tweet)
         db.session.commit()
         form.tweet.data = ""
-    tweets = Tweet.query.order_by(Tweet.id.desc()).all()
+    tweets = Tweet.query.order_by(Tweet.id.desc()).limit(5)
     return render_template("landing_page/landing_page.html", username=username, tweets=tweets, form=form)
 
 @MOD_LANDING_PAGE.route('/robots.txt', methods=['GET', 'POST'])
