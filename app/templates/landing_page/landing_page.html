@@ -12,21 +12,23 @@
         <div class="card horizontal">
           <div class="card-stacked">
             <div class="card-content">
-              <form class="col s12">
+              <form 
+                class="col s12"
+                method="POST" 
+                action="{{ url_for('landing_page.landing_page') }}" 
+                accept-charset="UTF-8" 
+                role="form"
+              >
+                {{ form.csrf_token }}
                 <div class="row">
                   <div class="input-field col s12">
-                    <textarea
-                      id="textarea1"
-                      maxlength="120"
-                      class="materialize-textarea"
-                    ></textarea>
-                    <label for="textarea1">What are you thinking today?</label>
+                    {{ render_field(form.tweet, class="materialize-textarea", id="textarea1", placeholder="What are you thinking today?") }}
                   </div>
                 </div>
+                <button class="waves-effect waves-light btn indigo right" type="submit" name="submit">
+                  Tweet
+                </button>
               </form>
-            </div>
-            <div class="card-action">
-              <a class="waves-effect waves-light btn indigo">tweet</a>
             </div>
           </div>
         </div>
@@ -36,28 +38,27 @@
   </div>
   <div class="divider"></div>
   {% endif %}
+  {% for tweet in tweets %}
   <div class="section">
     <div class="row">
       <div class="col s2"></div>
       <div class="col s8 m8">
         <div class="card indigo darken-1">
           <div class="card-content white-text">
-            <span class="card-title">@username</span>
+            <span class="card-title">@{{ tweet.get_username() }}</span>
             <p>
-              I am a very simple tweet. I am good at containing small bits of
-              information. I am convenient because I require little markup to
-              use effectively.
+              {{ tweet.text }}
             </p>
           </div>
           <div class="card-action white-text">
             <a href="#">
               <span class="new badge"
-                ><i class="tiny material-icons">thumb_up</i> 3</span
+                ><i class="tiny material-icons">thumb_up</i> {{ tweet.liked }}</span
               >
             </a>
             <a href="#">
               <span class="new badge"
-                ><i class="tiny material-icons">repeat</i> 2</span
+                ><i class="tiny material-icons">repeat</i> {{ tweet.retweet }}</span
               >
             </a>
           </div>
@@ -67,66 +68,16 @@
     </div>
   </div>
   <div class="divider"></div>
-  <div class="section">
-    <div class="row">
-      <div class="col s2"></div>
-      <div class="col s8 m8">
-        <div class="card indigo darken-1">
-          <div class="card-content white-text">
-            <span class="card-title">@username</span>
-            <p>
-              I am a very simple tweet. I am good at containing small bits of
-              information. I am convenient because I require little markup to
-              use effectively.
-            </p>
-          </div>
-          <div class="card-action white-text">
-            <a href="#">
-              <span class="new badge"
-                ><i class="tiny material-icons">thumb_up</i> 3</span
-              >
-            </a>
-            <a href="#">
-              <span class="new badge"
-                ><i class="tiny material-icons">repeat</i> 2</span
-              >
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="col s2"></div>
-    </div>
-  </div>
-  <div class="divider"></div>
-  <div class="section">
-    <div class="row">
-      <div class="col s2"></div>
-      <div class="col s8 m8">
-        <div class="card indigo darken-1">
-          <div class="card-content white-text">
-            <span class="card-title">@username</span>
-            <p>
-              I am a very simple tweet. I am good at containing small bits of
-              information. I am convenient because I require little markup to
-              use effectively.
-            </p>
-          </div>
-          <div class="card-action white-text">
-            <a href="#">
-              <span class="new badge"
-                ><i class="tiny material-icons">thumb_up</i> 3</span
-              >
-            </a>
-            <a href="#">
-              <span class="new badge"
-                ><i class="tiny material-icons">repeat</i> 2</span
-              >
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="col s2"></div>
-    </div>
-  </div>
+  {% endfor %}
 </div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='vendor/jquery/jquery-3.2.1.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/materialize.js') }}"></script>
+<script>
+  $(document).ready(function () {
+      $('input#input_text, textarea#textarea1').characterCounter();
+    });
+</script>
 {% endblock %}
