@@ -4,6 +4,8 @@ App module contains main application of Flask.
 from flask import Flask, render_template, abort, jsonify
 import flask_restful
 from flask_sqlalchemy import SQLAlchemy
+import redis
+from rq import Queue
 
 from common import code, pretty_result
 
@@ -14,6 +16,8 @@ HANDLE_USER_EXCEPTION = APP.handle_user_exception
 
 DB = SQLAlchemy(APP)
 
+REDIS = redis.Redis()
+REDIS_QUEUE = Queue(connection=REDIS)
 
 def _custom_abort(http_status_code, **kwargs):
     if http_status_code == 400:
