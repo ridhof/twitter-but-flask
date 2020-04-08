@@ -12,9 +12,13 @@ class Tweet(Base):
     liked = db.Column(db.Integer, nullable=False)
     retweet = db.Column(db.Integer, nullable=False)
 
-    def __init__(self, text, user):
+    def __init__(self, text, user=None, username=None):
         self.text = text
-        self.user_id = user.id
+        if username is not None:
+            user = User.query.filter_by(name=username).first()
+            self.user_id = user.id
+        else:
+            self.user_id = user.id
         self.liked = random.randint(0, 10)
         self.retweet = random.randint(0, 10)
 
